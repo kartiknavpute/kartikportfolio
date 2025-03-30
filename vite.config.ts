@@ -9,14 +9,18 @@ export default defineConfig(({ mode }) => ({
   // Only use base path for production build
   base: mode === 'production' ? "/Portfolio/" : "/",
   build: {
-    // Ensure assets are properly processed
-    assetsDir: 'assets',
+    // Output directly to root for GitHub Pages
+    outDir: 'dist',
+    // Enable source maps for better debugging
+    sourcemap: true,
     rollupOptions: {
       output: {
-        // Ensure main entry is properly named
+        // Use hash-based filenames to avoid caching issues
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
+        // Ensure proper paths are used
+        manualChunks: undefined,
       },
     },
   },

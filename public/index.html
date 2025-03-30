@@ -26,7 +26,7 @@
 <body>
   <div id="root"></div>
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-  <!-- Updated to use the correct path for the production build -->
-  <script src="./main.tsx" type="module"></script>
+  <!-- Don't directly reference main.tsx in production build -->
+  <!-- The bundled assets will be included automatically by the build process -->
 </body>
 </html>
